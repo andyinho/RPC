@@ -33,14 +33,15 @@ const getComputerChoice = function () {
 };
 
 const getWinner = (cChoice, pChoice) =>
+  cChoice === pChoice
+    ? RESULT_DRAW
+    : (cChoice === ROCK && pChoice === PAPER) ||
+      (cChoice === PAPER && pChoice === SCISSORS) ||
+      (cChoice === SCISSORS && pChoice === ROCK)
+    ? RESULT_PLAYER_WINS
+    : RESUL_COMPUTER_WINS;
 
-  cChoice === pChoice ? alert(`${cChoice} does not beat ${pChoice}, it's a draw. Go again!`);
-  RESULT_DRAW : (cChoice === ROCK && pChoice === PAPER) ||
-  (cChoice === PAPER && pChoice === SCISSORS) ||
-  (cChoice === SCISSORS && pChoice === ROCK) ? RESULT_PLAYER_WINS : RESUL_COMPUTER_WINS;
-
-
-  /*if (cChoice === pChoice) {
+/*if (cChoice === pChoice) {
     alert(`${cChoice} does not beat ${pChoice}, it's a draw. Go again!`);
     return RESULT_DRAW;
   } else if (
