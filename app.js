@@ -32,8 +32,15 @@ const getComputerChoice = function () {
   return compSelection;
 };
 
-const getWinner = function (cChoice, pChoice) {
-  if (cChoice === pChoice) {
+const getWinner = (cChoice, pChoice) =>
+
+  cChoice === pChoice ? alert(`${cChoice} does not beat ${pChoice}, it's a draw. Go again!`);
+  RESULT_DRAW : (cChoice === ROCK && pChoice === PAPER) ||
+  (cChoice === PAPER && pChoice === SCISSORS) ||
+  (cChoice === SCISSORS && pChoice === ROCK) ? RESULT_PLAYER_WINS : RESUL_COMPUTER_WINS;
+
+
+  /*if (cChoice === pChoice) {
     alert(`${cChoice} does not beat ${pChoice}, it's a draw. Go again!`);
     return RESULT_DRAW;
   } else if (
@@ -46,8 +53,7 @@ const getWinner = function (cChoice, pChoice) {
   } else {
     alert(`${cChoice} beats ${pChoice}. You lost!`);
     return RESUL_COMPUTER_WINS;
-  }
-};
+  }*/
 
 function resetGame() {
   gameIsRunning = false;
