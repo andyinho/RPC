@@ -10,7 +10,7 @@ const DEFAULT_USER_CHOICE = ROCK;
 
 let gameIsRunning = false;
 
-const getPlayerChoice = function () {
+const getPlayerChoice = () => {
   const selection = prompt(`${ROCK}, ${PAPER}, or ${SCISSORS}?`).toUpperCase();
   if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
     alert(`Invalid choice. We chose ${DEFAULT_USER_CHOICE} for you!`);
@@ -19,7 +19,7 @@ const getPlayerChoice = function () {
   return selection;
 };
 
-const getComputerChoice = function () {
+const getComputerChoice = () => {
   let randomNumber = Math.floor(Math.random() * 100);
   let compSelection;
   if (randomNumber <= 33) {
@@ -41,27 +41,12 @@ const getWinner = (cChoice, pChoice) =>
     ? RESULT_PLAYER_WINS
     : RESUL_COMPUTER_WINS;
 
-/*if (cChoice === pChoice) {
-    alert(`${cChoice} does not beat ${pChoice}, it's a draw. Go again!`);
-    return RESULT_DRAW;
-  } else if (
-    (cChoice === ROCK && pChoice === PAPER) ||
-    (cChoice === PAPER && pChoice === SCISSORS) ||
-    (cChoice === SCISSORS && pChoice === ROCK)
-  ) {
-    alert(`${pChoice} beats ${cChoice}. You won!`);
-    return RESULT_PLAYER_WINS;
-  } else {
-    alert(`${cChoice} beats ${pChoice}. You lost!`);
-    return RESUL_COMPUTER_WINS;
-  }*/
-
-function resetGame() {
+const resetGame = () => {
   gameIsRunning = false;
   getComputerChoice;
-}
+};
 
-startGameBtn.addEventListener('click', function () {
+startGameBtn.addEventListener('click', () => {
   if (gameIsRunning) {
     return;
   }
